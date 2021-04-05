@@ -3,7 +3,9 @@
   "version": "0.2.0",
   "description": "",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "start": "node src/index.js"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/salonnlee/p6.git"
@@ -11,6 +13,12 @@
   "author": "salonnlee <huanghj199512@163.com>",
   "license": "MIT",
   "dependencies": {
-    "koa": "^2.13.1"
+    "@koa/cors": "^3.1.0",
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0",
+    "koa-combine-routers": "^4.0.2",
+    "koa-helmet": "^6.1.0",
+    "koa-json": "^2.0.2",
+    "koa-router": "^10.0.0"
   }
 }
