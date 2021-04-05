@@ -1,8 +1,6 @@
-import combineRoutes from 'koa-combine-routers'
-import userRoutes from './userRouter'
+const combineRoutes = require("koa-combine-routers");
+const userRoutes = require("./userRouter");
 
-const router = combineRoutes(
-  userRoutes,
-)
+const router = combineRoutes(userRoutes);
 
-export default router
+module.exports = router;

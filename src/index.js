@@ -1,15 +1,14 @@
 // const koa = require('koa')
-// const path = require('path')
-import koa from 'koa'
-import koaBody from 'koa-body'
-import helmet from 'koa-helmet'
-import router from './routes/routes'
+const koa = require("koa");
+const koaBody = require("koa-body");
+const helmet = require("koa-helmet");
+const router = require("./routes/routes");
 
-const app = new koa()
+const app = new koa();
 
-app.use(helmet())
-app.use(koaBody())
-app.use(router())
+app.use(helmet());
+app.use(koaBody());
+app.use(router());
 
-console.log('app is running on 3000!')
-app.listen(3000)
+console.log("app is running on 3000!");
+app.listen(3000);
