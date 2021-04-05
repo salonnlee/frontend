@@ -9,5 +9,8 @@
     "url": "https://github.com/salonnlee/p6.git"
   },
   "author": "salonnlee <huanghj199512@163.com>",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "koa": "^2.13.1"
+  }
 }
