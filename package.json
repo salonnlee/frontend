@@ -1,38 +1,19 @@
 {
   "name": "p6",
-  "version": "0.2.0",
+  "version": "0.0.1",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "cross-env NODE_ENV=development nodemon --exec babel-node src/index.js",
-    "build": "cross-env NODE_ENV=production webpack"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/salonnlee/p6.git"
   },
   "author": "salonnlee <huanghj199512@163.com>",
   "license": "MIT",
-  "dependencies": {
-    "@koa/cors": "^3.1.0",
-    "koa": "^2.13.1",
-    "koa-body": "^4.2.0",
-    "koa-combine-routers": "^4.0.2",
-    "koa-helmet": "^6.1.0",
-    "koa-json": "^2.0.2",
-    "koa-router": "^10.0.0"
-  },
+  "dependencies": {},
   "devDependencies": {
-    "@babel/core": "^7.13.14",
-    "@babel/node": "^7.13.13",
-    "@babel/preset-env": "^7.13.12",
-    "babel-loader": "^8.2.2",
-    "clean-webpack-plugin": "^3.0.0",
-    "cross-env": "^7.0.3",
-    "terser-webpack-plugin": "^5.1.1",
-    "webpack": "^5.30.0",
-    "webpack-cli": "^4.6.0",
-    "webpack-merge": "^5.7.3",
-    "webpack-node-externals": "^2.5.2"
+    "@babel/core": "^7.14.3",
+    "@babel/node": "^7.14.2",
+    "@babel/preset-env": "^7.14.4",
+    "babel-loader": "^8.2.2"
   }
 }
