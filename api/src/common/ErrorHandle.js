@@ -4,17 +4,19 @@ export default (ctx, next) => {
       ctx.status = 401;
       ctx.body = {
         code: 401,
-        msg: 'Protected resource, use Authorization header to get access\n'
-      }
+        msg: "Protected resource, use Authorization header to get access\n"
+      };
     } else {
-      debugger
-      ctx.status = err.status || 500
-      ctx.body = Object.assign({
-        code: 500,
-        msg: err.message,
-      }, process.env.NODE_ENV === 'development' ?
-        { stack: err.stack } : {})
+      debugger;
+      ctx.status = err.status || 500;
+      ctx.body = Object.assign(
+        {
+          code: 500,
+          msg: err.message
+        },
+        process.env.NODE_ENV === "development" ? { stack: err.stack } : {}
+      );
       // console.log(err.stack);
     }
   });
-}
+};
