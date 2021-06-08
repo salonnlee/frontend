@@ -1,7 +1,7 @@
-import send from '../config/MailConfig'
+import send from '@/config/MailConfig'
 import moment from 'moment'
 import jsonwebtoken from 'jsonwebtoken'
-import config from '../config'
+import config from '@/config'
 import { checkCode } from '@/common/Utils'
 import User from '@/model/User'
 
@@ -31,6 +31,7 @@ class LoginController {
   }
 
   async login(ctx) {
+    debugger
     // 接收用户的数据
     // 返回token
     const { body } = ctx.request

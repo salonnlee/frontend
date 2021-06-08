@@ -6,6 +6,7 @@ const TerserWebpackPlugin = require('terser-webpack-plugin')
 const webpackConfig = webpackMerge(baseWebpackConfig, {
   mode: 'production',
   stats: { children: false, warnings: false },
+  devtool: 'eval-source-map',
   optimization: {
     minimizer: [
       new TerserWebpackPlugin({
