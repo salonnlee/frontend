@@ -1,6 +1,6 @@
 import moment from "moment";
 import jsonwebtoken from "jsonwebtoken";
-import { checkCode } from "@/common/Utils";
+import checkCode from "@/utils/checkCode";
 import User from "@/model/User";
 import { JWT_SECRET } from "@/config/jwt";
 
@@ -27,7 +27,7 @@ class LoginController {
       if (checkUserPasswd) {
         // 验证通过，返回Token数据
         console.log("Hello login");
-        let token = jsonwebtoken.sign({ _id: "brian" }, JWT_SECRET, {
+        let token = jsonwebtoken.sign({ _id: "huangpada" }, JWT_SECRET, {
           expiresIn: "1d"
         });
         ctx.body = {

@@ -13,4 +13,4 @@ const checkCode = async (key, value) => {
   }
 };
 
-export { checkCode };
+export default checkCode;

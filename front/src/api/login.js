@@ -9,7 +9,7 @@ const getCode = (sid) => {
   //  method: 'get',
   //  url: '/getCaptcha'
   // })
-  return axios.get('/getCaptcha', {
+  return axios.get('/public/getCaptcha', {
     params: {
       sid: sid
     }
@@ -21,7 +21,7 @@ const getCode = (sid) => {
  * @param {*} loginInfo 用户登录信息
  */
 const login = (loginInfo) => {
-  return axios.post('/login', {
+  return axios.post('/login/login', {
     ...loginInfo
   });
 };
