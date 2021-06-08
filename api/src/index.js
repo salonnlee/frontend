@@ -29,7 +29,7 @@ const middleware = compose([
   jsonutil({ pretty: false, param: 'pretty' }),
   helmet(),
   errorHandle,
-  jwt
+  // jwt
 ])
 
 if (!isDevMode) {

@@ -31,9 +31,6 @@
         <li class="layui-nav-item">
           <a href="../user/login.html">登入</a>
         </li>
-        <li class="layui-nav-item">
-          <a href="../user/reg.html">注册</a>
-        </li>
         <li class="layui-nav-item layui-hide-xs">
           <a
             href
