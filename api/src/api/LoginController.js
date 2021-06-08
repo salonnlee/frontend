@@ -1,6 +1,6 @@
 import moment from "moment";
 import jsonwebtoken from "jsonwebtoken";
-import checkCode from "@/utils/checkCode";
+import checkCode from "@/common/checkCode";
 import User from "@/model/User";
 import { JWT_SECRET } from "@/config/jwt";
 
