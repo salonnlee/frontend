@@ -4,12 +4,10 @@ module.exports = {
     [
       '@babel/preset-env',
       {
-        'useBuiltIns': 'usage',
-        'corejs': 2
+        useBuiltIns: 'usage',
+        corejs: 2
       }
     ]
   ],
-  plugins: [
-    '@babel/plugin-transform-runtime'
-  ]
-}
+  plugins: ['@babel/plugin-transform-runtime']
+};

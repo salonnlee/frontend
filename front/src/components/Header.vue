@@ -6,9 +6,7 @@
       </a>
       <ul class="layui-nav fly-nav layui-hide-xs">
         <li class="layui-nav-item layui-this">
-          <a href="/">
-            <i class="iconfont icon-jiaoliu"></i>交流
-          </a>
+          <a href="/"> <i class="iconfont icon-jiaoliu"></i>交流 </a>
         </li>
         <li class="layui-nav-item">
           <a href="case/case.html">
@@ -25,7 +23,10 @@
       <ul class="layui-nav fly-nav-user">
         <!-- 未登入的状态 -->
         <li class="layui-nav-item">
-          <a class="iconfont icon-touxiang layui-hide-xs" href="../user/login.html"></a>
+          <a
+            class="iconfont icon-touxiang layui-hide-xs"
+            href="../user/login.html"
+          ></a>
         </li>
         <li class="layui-nav-item">
           <a href="../user/login.html">登入</a>
@@ -76,7 +77,7 @@
 <script>
 export default {
   name: 'Header'
-}
+};
 </script>
 
 <style lang="scss" scoped>

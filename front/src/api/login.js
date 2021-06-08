@@ -1,4 +1,4 @@
-import axios from '@/utils/request'
+import axios from '@/utils/request';
 
 /**
  * 获取验证码接口
@@ -13,8 +13,8 @@ const getCode = (sid) => {
     params: {
       sid: sid
     }
-  })
-}
+  });
+};
 
 /**
  * 找回密码接口
@@ -23,8 +23,8 @@ const getCode = (sid) => {
 const forget = (option) => {
   return axios.post('/forget', {
     ...option
-  })
-}
+  });
+};
 
 /**
  * 登录接口
@@ -33,11 +33,7 @@ const forget = (option) => {
 const login = (loginInfo) => {
   return axios.post('/login', {
     ...loginInfo
-  })
-}
+  });
+};
 
-export {
-  getCode,
-  forget,
-  login
-}
+export { getCode, forget, login };
