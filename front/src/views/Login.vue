@@ -61,6 +61,7 @@
                   <div class="layui-form-item">
                     <validation-provider
                       name="code"
+                      ref="codefield"
                       rules="required|length:4"
                       v-slot="{ errors }"
                     >
@@ -153,7 +154,6 @@ export default {
       localStorage.setItem('sid', sid);
     }
     this.$store.commit('setSid', sid);
-    console.log(sid);
     this._getCode();
   },
   methods: {
@@ -171,17 +171,34 @@ export default {
         // ABORT!!
         return;
       }
-      console.log('submit');
       login({
         username: this.username,
         password: this.password,
         code: this.code,
         sid: this.$store.state.sid
-      }).then((res) => {
-        if (res.code === 200) {
-          console.log(res);
-        }
-      });
+      })
+        .then((res) => {
+          if (res.code === 200) {
+            this.username = '';
+            this.password = '';
+            this.code = '';
+            requestAnimationFrame(() => {
+              this.$refs.observer.reset();
+            });
+            console.log(res);
+          } else if (res.code === 401) {
+            this.$refs.codefield.setErrors([res.msg]);
+          }
+        })
+        .catch((err) => {
+          const data = err.response.data;
+          if (data.code === 500) {
+            this.$alert('用户名密码校验失败，请检查！');
+          } else {
+            this.$alert('服务器错误');
+          }
+          console.log(err.response);
+        });
     }
   }
 };
