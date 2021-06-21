@@ -8,6 +8,12 @@
 		},
 		{
 			"path": "api"
+		},
+		{
+			"path": "vue"
+		},
+		{
+			"path": "react"
 		}
 	],
 	"settings": {}
