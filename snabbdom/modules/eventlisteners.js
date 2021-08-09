@@ -1,5 +1,3 @@
-function updateEventListeners() {}
-
 function invokeHandler(handler, vnode, event) {
   if (typeof handler === "function") {
     // call function handler
