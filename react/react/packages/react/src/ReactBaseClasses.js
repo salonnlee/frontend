@@ -1,12 +1,10 @@
-import invariant from "../../shared/invariant";
 import ReactNoopUpdateQueue from "./ReactNoopUpdateQueue";
 
 const emptyObject = {};
-// eslint-disable-next-line no-undef
-if (__DEV__) {
-  Object.freeze(emptyObject);
-}
 
+/**
+ * Base class helpers for the updating state of a component.
+ */
 function Component(props, context, updater) {
   this.props = props;
   this.context = context;
@@ -16,18 +14,21 @@ function Component(props, context, updater) {
   // renderer.
   this.updater = updater || ReactNoopUpdateQueue;
 }
+
 Component.prototype.isReactComponent = {};
 
+/**
+ * Sets a subset of the state. Always use this to mutate
+ * state. You should treat `this.state` as immutable.
+ */
 Component.prototype.setState = function (partialState, callback) {
-  invariant(
-    typeof partialState === "object" ||
-      typeof partialState === "function" ||
-      partialState == null,
-    "setState(...): takes an object of state variables to update or a " +
-      "function which returns an object of state variables."
-  );
   this.updater.enqueueSetState(this, partialState, callback, "setState");
 };
+
+/**
+ * Forces an update. This should only be invoked when it is known with
+ * certainty that we are **not** in a DOM transaction.
+ */
 Component.prototype.forceUpdate = function (callback) {
   this.updater.enqueueForceUpdate(this, callback, "forceUpdate");
 };
@@ -35,16 +36,20 @@ Component.prototype.forceUpdate = function (callback) {
 function ComponentDummy() {}
 ComponentDummy.prototype = Component.prototype;
 
+/**
+ * Convenience component with default shallow equality check for sCU.
+ */
 function PureComponent(props, context, updater) {
   this.props = props;
   this.context = context;
+  // If a component has string refs, we will assign a different object later.
   this.refs = emptyObject;
   this.updater = updater || ReactNoopUpdateQueue;
 }
 
 const pureComponentPrototype = (PureComponent.prototype = new ComponentDummy());
-
 pureComponentPrototype.constructor = PureComponent;
+// Avoid an extra prototype jump for these methods.
 Object.assign(pureComponentPrototype, Component.prototype);
 pureComponentPrototype.isPureReactComponent = true;
 

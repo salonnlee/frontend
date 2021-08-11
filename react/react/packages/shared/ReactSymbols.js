@@ -1,3 +1,5 @@
+// The Symbol used to tag the ReactElement-like types. If there is no native Symbol
+// nor polyfill, then a plain number is used for performance.
 export let REACT_ELEMENT_TYPE = 0xeac7;
 export let REACT_PORTAL_TYPE = 0xeaca;
 export let REACT_FRAGMENT_TYPE = 0xeacb;
@@ -49,7 +51,7 @@ export function getIteratorFn(maybeIterable) {
   const maybeIterator =
     (MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL]) ||
     maybeIterable[FAUX_ITERATOR_SYMBOL];
-  if (typeof maybeIterable === "function") {
+  if (typeof maybeIterator === "function") {
     return maybeIterator;
   }
   return null;

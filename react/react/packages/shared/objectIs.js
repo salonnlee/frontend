@@ -1,9 +1,9 @@
 function is(x, y) {
   if (x === y) {
-    // +0 != -0
+    // +0 !== -0
     return x !== 0 || 1 / x === 1 / y;
   } else {
-    // NaN == NaN
+    // NaN !== NaN
     // eslint-disable-next-line no-self-compare
     return x !== x && y !== y;
   }
