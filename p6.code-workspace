@@ -20,6 +20,9 @@
 		},
 		{
 			"path": "snabbdom"
+		},
+		{
+			"path": "algorithm"
 		}
 	],
 	"settings": {}
