@@ -23,27 +23,27 @@
 
 // console.log(observable);
 
-import { interval, take } from "rxjs";
+// import { interval, take } from "rxjs";
 
-const source = interval(1000).pipe(take(3));
+// const source = interval(1000).pipe(take(3));
 
-const subject = {
-  observers: [],
-  subscribe: function (observer) {
-    this.observers.push(observer);
-  },
-  next: function (value) {
-    this.observers.forEach((next) => next(value));
-  }
-};
+// const subject = {
+//   observers: [],
+//   subscribe: function (observer) {
+//     this.observers.push(observer);
+//   },
+//   next: function (value) {
+//     this.observers.forEach((next) => next(value));
+//   }
+// };
 
-source.subscribe(subject);
+// source.subscribe(subject);
 
-subject.subscribe((value) => console.log("observerA " + value));
+// subject.subscribe((value) => console.log("observerA " + value));
 
-setTimeout(() => {
-  subject.subscribe((value) => console.log("observerB " + value));
-}, 1000);
+// setTimeout(() => {
+//   subject.subscribe((value) => console.log("observerB " + value));
+// }, 1000);
 
 // observerA 0
 // (after 1000ms..)
@@ -52,3 +52,11 @@ setTimeout(() => {
 // (after 1000ms..)
 // observerA 2
 // observerB 2
+
+import { fromEvent, take } from "rxjs";
+
+setTimeout(() => {
+  fromEvent(document.body, "click")
+    .pipe(take(6))
+    .subscribe((event) => console.log("Body click!", event));
+}, 2000);
