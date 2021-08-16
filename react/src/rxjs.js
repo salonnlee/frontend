@@ -53,10 +53,15 @@
 // observerA 2
 // observerB 2
 
-import { fromEvent, take } from "rxjs";
+import { fromEvent } from "rxjs";
+import { throttleTime, scan, map } from "rxjs/operators";
 
 setTimeout(() => {
-  fromEvent(document.body, "click")
-    .pipe(take(6))
-    .subscribe((event) => console.log("Body click!", event));
-}, 2000);
+  fromEvent(document, "click")
+    .pipe(
+      throttleTime(1000),
+      map((event) => event.clientX),
+      scan((count, clientX) => count + clientX, 0)
+    )
+    .subscribe((count) => console.log(count));
+}, 1000);
