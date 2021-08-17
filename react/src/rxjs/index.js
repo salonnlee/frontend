@@ -1,17 +1,52 @@
-import { from, Subject } from "rxjs";
-import { multicast } from "rxjs/operators";
+import { Observable, of } from "rxjs";
 
-const source = from([1, 2]);
-const subject = new Subject();
-const multicasted = source.pipe(multicast(subject));
+function delay(delayInMillis) {
+  return (observable) =>
+    new Observable((subscriber) => {
+      // this function will be called each time this
+      // Observable is subscribed to.
+      const allTimerIDs = new Set();
+      let hasCompleted = false;
+      const subscription = observable.subscribe({
+        next(value) {
+          // Start a timer to delay the next value
+          // from being pushed.
+          const timerID = setTimeout(() => {
+            subscriber.next(value);
+            // after we push the value, we need to clean up the timer timerID
+            allTimerIDs.delete(timerID);
+            // If the source has completed, and there are no more timers running,
+            // we can complete the resulting observable.
+            if (hasCompleted && allTimerIDs.size === 0) {
+              subscriber.complete();
+            }
+          }, delayInMillis);
+          allTimerIDs.add(timerID);
+        },
+        error(err) {
+          // We need to make sure we're propagating our errors through.
+          subscriber.error(err);
+        },
+        complete() {
+          hasCompleted = true;
+          // If we still have timers running, we don't want to yet.
+          if (allTimerIDs.size === 0) {
+            subscriber.complete();
+          }
+        }
+      });
 
-// subject.subscribe({...})
-multicasted.subscribe({
-  next: (x) => console.log(`observerA: ${x}`)
-});
-multicasted.subscribe({
-  next: (x) => console.log(`observerB: ${x}`)
-});
+      // Return the teardown logic. This will be invoked when
+      // the result errors, completes, or is unsubscribed.
+      return () => {
+        subscription.unsubscribe();
+        // Clean up our timers.
+        for (const timerID of allTimerIDs) {
+          clearTimeout(timerID);
+        }
+      };
+    });
+}
 
-// source.subscribe(subject)
-multicasted.connect();
+// Try it out!
+of(1, 2, 3).pipe(delay(1000)).subscribe(console.log);
