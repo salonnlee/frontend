@@ -1,17 +1,18 @@
-function subscribe(observer) {
-  let count = 0;
-  const intervalID = setInterval(() => {
-    observer.next(`next ${++count}`);
-  }, 1000);
-  return {
-    unsubscribe: function () {
-      clearInterval(intervalID);
-    }
-  };
-}
+import { Subject } from "rxjs";
 
-const subscription = subscribe({ next: (x) => console.log(x) });
+const subject = new Subject();
 
-setTimeout(() => {
-  subscription.unsubscribe();
-}, 6000);
+subject.subscribe({
+  next: (x) => console.log(`observerA: ${x}`)
+});
+subject.subscribe({
+  next: (x) => console.log(`observerB: ${x}`)
+});
+
+subject.next(1);
+subject.next(2);
+
+// observerA: 1
+// observerB: 1
+// observerA: 2
+// observerB: 2
