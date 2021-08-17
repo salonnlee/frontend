@@ -1,5 +1,6 @@
 import "./app.css";
 import "./quill/index";
+import "./rxjs/index";
 
 function App() {
   return (
