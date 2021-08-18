@@ -1,12 +1,12 @@
 import React from "react";
 import "./app.css";
 
-import "./quill";
+import QuillEditor from "./quill/QuillEditor";
 
 function App(props) {
   return (
     <div className="App">
-      <div className="editor" contentEditable="true"></div>
+      <QuillEditor />
     </div>
   );
 }
