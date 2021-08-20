@@ -1,9 +1,7 @@
 import React from "react";
-import Iterator from "./delta/Iterator";
-import Op from "./delta/Op";
+import Delta from "./delta/Delta";
 
-window.Iterator = Iterator;
-window.Op = Op;
+window.Delta = Delta;
 
 class QuillEditor extends React.Component {
   render() {
