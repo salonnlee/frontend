@@ -1,7 +1,4 @@
 import React from "react";
-import Delta from "./delta/Delta";
-
-window.Delta = Delta;
 
 class QuillEditor extends React.Component {
   render() {
