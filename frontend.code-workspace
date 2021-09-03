@@ -4,10 +4,12 @@
       "path": "."
     },
     {
-      "path": "front"
+      "path": "./community/front",
+      "name": "community-front"
     },
     {
-      "path": "api"
+      "path": "./community/api",
+      "name": "community-api"
     }
   ],
   "settings": {}
