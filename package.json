@@ -1,11 +1,11 @@
 {
-  "name": "p6",
-  "version": "0.0.1",
+  "name": "frontend",
+  "version": "0.1.0",
   "description": "",
   "scripts": {},
   "repository": {
     "type": "git",
-    "url": "https://github.com/salonnlee/p6.git"
+    "url": "https://github.com/salonnlee/frontend.git"
   },
   "author": "salonnlee <huanghj199512@163.com>",
   "dependencies": {},
