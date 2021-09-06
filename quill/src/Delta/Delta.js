@@ -2,8 +2,8 @@ import fastDiff from "fast-diff";
 import cloneDeep from "lodash.clonedeep";
 import isEqual from "lodash.isequal";
 
-import Op from "./Op";
-import AttributeMap from "./AttributeMap";
+import Op from "./Op.js";
+import AttributeMap from "./AttributeMap.js";
 
 const NULL_CHARACTER = String.fromCharCode(0); // Placeholder char for embed in diff()
 
@@ -517,5 +517,8 @@ class Delta {
     return index;
   }
 }
+
+Delta.Op = Op;
+Delta.AttributeMap = AttributeMap;
 
 export default Delta;

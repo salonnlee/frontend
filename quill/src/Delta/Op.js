@@ -1,10 +1,10 @@
-import Iterator from "./Iterator";
+import Iterator from "./Iterator.js";
 
 let Op;
 
 (function (_Op) {
   function iterator(ops) {
-    return new Iterator.default(ops);
+    return new Iterator(ops);
   }
   _Op.iterator = iterator;
 

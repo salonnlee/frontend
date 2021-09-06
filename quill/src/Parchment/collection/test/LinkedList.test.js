@@ -1,6 +1,3 @@
-/* eslint-disable jest/no-jasmine-globals */
-/* global spyOn */
-
 import LinkedList from "../LinkedList.js";
 
 describe("LinkedList", function () {
@@ -135,6 +132,7 @@ describe("LinkedList", function () {
           return arguments;
         }
       };
+      // eslint-disable-next-line no-undef, jest/no-jasmine-globals
       spyOn(this.spy, "callback");
     });
 

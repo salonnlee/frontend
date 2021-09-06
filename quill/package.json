@@ -17,8 +17,9 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "npm run test:parchment",
-    "test:parchment": "jasmine --config=jasmine.config.json"
+    "test": "npm run test:delta; npm run test:parchment",
+    "test:delta": "jasmine src/Delta/**/*.test.js --config=jasmine.config.json",
+    "test:parchment": "jasmine src/Parchment/**/*.test.js --config=jasmine.config.json"
   },
   "eslintConfig": {
     "extends": [

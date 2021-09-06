@@ -1,4 +1,4 @@
-import Op from "./Op";
+import Op from "./Op.js";
 
 class Iterator {
   constructor(ops) {
