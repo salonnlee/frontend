@@ -1,6 +1,7 @@
 {
   "name": "quill",
   "version": "0.1.0",
+  "type": "module",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
@@ -15,7 +16,9 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build"
+    "build": "react-scripts build",
+    "test": "npm run test:parchment",
+    "test:parchment": "jasmine --config=jasmine.config.json"
   },
   "eslintConfig": {
     "extends": [
@@ -34,5 +37,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "jasmine": "^3.9.0"
   }
 }

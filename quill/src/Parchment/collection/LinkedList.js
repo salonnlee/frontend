@@ -91,7 +91,7 @@ class LinkedList {
         offset < length ||
         (inclusive &&
           offset === length &&
-          (cur.next == null || cur.next.length !== 0))
+          (cur.next == null || cur.next.length() !== 0))
       ) {
         return [cur, offset];
       }
@@ -172,25 +172,38 @@ class LinkedList {
       return;
     }
 
-    const [startNode, leftOffset] = this.find(offset);
     const startOffset = offset;
-    const endOffset = startOffset + length;
+    const endOffset = offset + length;
 
-    const next = this.iterator(startNode);
-    let cur = next();
+    const [startNode, startNodeOffset] = this.find(startOffset);
+    let curOffset = startOffset - startNodeOffset;
 
     // first node
-    let curOffset = startOffset - leftOffset;
-    if (leftOffset > 0) {
+    const next = this.iterator(startNode);
+    let cur = next();
+    if (cur) {
       const curLength = cur.length();
-      callback(cur, leftOffset, Math.min(startOffset, curLength - leftOffset));
+      callback(
+        cur,
+        startNodeOffset,
+        Math.min(
+          curLength - startNodeOffset,
+          /* first && last node : endOffset - startOffset = */ length
+        )
+      );
       curOffset += curLength;
       cur = next();
+    } else {
+      return;
     }
 
     while (cur && curOffset < endOffset) {
       const curLength = cur.length();
-      callback(cur, 0, Math.min(curLength, endOffset - curOffset /* last node */));
+      callback(
+        cur,
+        0,
+        Math.min(curLength, /* last node */ endOffset - curOffset)
+      );
       curOffset += curLength;
       cur = next();
     }
