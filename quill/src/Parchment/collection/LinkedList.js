@@ -190,7 +190,7 @@ class LinkedList {
 
     while (cur && curOffset < endOffset) {
       const curLength = cur.length();
-      callback(cur, 0, Math.min(curLength, endOffset - curOffset));
+      callback(cur, 0, Math.min(curLength, endOffset - curOffset /* last node */));
       curOffset += curLength;
       cur = next();
     }
