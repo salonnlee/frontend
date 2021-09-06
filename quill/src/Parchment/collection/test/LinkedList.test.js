@@ -1,7 +1,7 @@
 /* eslint-disable jest/no-jasmine-globals */
 /* global spyOn */
 
-import LinkedList from "./LinkedList.js";
+import LinkedList from "../LinkedList.js";
 
 describe("LinkedList", function () {
   beforeEach(function () {
