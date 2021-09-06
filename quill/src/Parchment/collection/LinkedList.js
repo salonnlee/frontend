@@ -166,7 +166,6 @@ class LinkedList {
     return memo;
   }
 
-  // @TODO
   forEachAt(offset, length, callback) {
     if (length <= 0) {
       return;
