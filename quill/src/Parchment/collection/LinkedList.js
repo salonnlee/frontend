@@ -20,6 +20,25 @@ class LinkedList {
     };
   }
 
+  find(offset, inclusive = false) {
+    const next = this.iterator();
+    let cur = next();
+    while (cur) {
+      const length = cur.length();
+      if (
+        offset < length ||
+        (inclusive &&
+          offset === length &&
+          (cur.next == null || cur.next.length() !== 0))
+      ) {
+        return [cur, offset];
+      }
+      offset -= length;
+      cur = next();
+    }
+    return [null, 0];
+  }
+
   contains(node) {
     const next = this.iterator();
     let cur = next();
@@ -80,25 +99,6 @@ class LinkedList {
       this.tail = node.prev;
     }
     this.length -= 1;
-  }
-
-  find(offset, inclusive = false) {
-    const next = this.iterator();
-    let cur = next();
-    while (cur) {
-      const length = cur.length();
-      if (
-        offset < length ||
-        (inclusive &&
-          offset === length &&
-          (cur.next == null || cur.next.length() !== 0))
-      ) {
-        return [cur, offset];
-      }
-      offset -= length;
-      cur = next();
-    }
-    return [null, 0];
   }
 
   // at

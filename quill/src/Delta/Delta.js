@@ -8,6 +8,9 @@ import AttributeMap from "./AttributeMap.js";
 const NULL_CHARACTER = String.fromCharCode(0); // Placeholder char for embed in diff()
 
 class Delta {
+  static Op = Op;
+  static AttributeMap = AttributeMap;
+
   constructor(ops) {
     // Assume we are given a well formed ops
     if (Array.isArray(ops)) {
@@ -517,8 +520,5 @@ class Delta {
     return index;
   }
 }
-
-Delta.Op = Op;
-Delta.AttributeMap = AttributeMap;
 
 export default Delta;
