@@ -1,5 +1,5 @@
-import Scope from "../../scope";
-import ParentBlot from "./parent";
+import Scope from "../../scope.js";
+import ParentBlot from "./parent.js";
 
 class ContainerBlot extends ParentBlot {
   static blotName = "container";

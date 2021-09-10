@@ -1,4 +1,4 @@
-import Attributor from "./attributor";
+import Attributor from "./attributor.js";
 
 function match(node, prefix) {
   const className = node.getAttribute("class") || "";

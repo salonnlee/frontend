@@ -1,4 +1,4 @@
-import LeafBlot from "./abstract/leaf";
+import LeafBlot from "./abstract/leaf.js";
 
 class EmbedBlot extends LeafBlot {
   static formats(_domNode, _scroll) {

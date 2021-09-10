@@ -1,8 +1,8 @@
-import Registry from "../registry";
-import Scope from "../scope";
-import ContainerBlot from "./abstract/container";
-import ParentBlot from "./abstract/parent";
-import BlockBlot from "./block";
+import Registry from "../registry.js";
+import Scope from "../scope.js";
+import ContainerBlot from "./abstract/container.js";
+import ParentBlot from "./abstract/parent.js";
+import BlockBlot from "./block.js";
 
 const OBSERVER_CONFIG = {
   attributes: true,

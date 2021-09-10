@@ -1,7 +1,7 @@
-import LinkedList from "../../collection/LinkedList";
-import ParchmentError from "../../error";
-import Scope from "../../scope";
-import ShadowBlot from "./shadow";
+import LinkedList from "../../collection/LinkedList.js";
+import ParchmentError from "../../error.js";
+import Scope from "../../scope.js";
+import ShadowBlot from "./shadow.js";
 
 function makeAttachedBlot(node, scroll) {
   let blot = scroll.find(node);

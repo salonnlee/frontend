@@ -2,7 +2,23 @@ module.exports = function (config) {
   config.set({
     basePath: "",
     frameworks: ["jasmine"],
-    files: ["test/parchment.js"],
+    files: [
+      "test/parchment.js",
+      // "test/setup.js",
+      "test/registry/*.js",
+      "test/unit/LinkedList.js",
+      // "test/unit/registry.js",
+      // "test/unit/attributor.js",
+      // "test/unit/blot.js",
+      // "test/unit/parent.js",
+      // "test/unit/scroll.js",
+      // "test/unit/container.js",
+      // "test/unit/block.js",
+      // "test/unit/inline.js",
+      // "test/unit/embed.js",
+      // "test/unit/text.js",
+      // "test/unit/lifecycle.js"
+    ],
     preprocessors: {
       "test/registry/*.js": ["babel"],
       "test/parchment.js": ["webpack"]

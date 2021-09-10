@@ -1,6 +1,6 @@
-import ParchmentError from "../../error";
-import Registry from "../../registry";
-import Scope from "../../scope";
+import ParchmentError from "../../error.js";
+import Registry from "../../registry.js";
+import Scope from "../../scope.js";
 
 class ShadowBlot {
   static blotName = "abstract";
@@ -48,6 +48,8 @@ class ShadowBlot {
     return this.constructor;
   }
   constructor(scroll, domNode) {
+    this.scroll = scroll;
+    this.domNode = domNode;
     Registry.blots.set(domNode, this);
     this.prev = null;
     this.next = null;

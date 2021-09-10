@@ -1,8 +1,8 @@
-import Attributor from "../attributor/attributor";
-import AttributorStore from "../attributor/store";
-import Scope from "../scope";
-import LeafBlot from "./abstract/leaf";
-import ParentBlot from "./abstract/parent";
+import Attributor from "../attributor/attributor.js";
+import AttributorStore from "../attributor/store.js";
+import Scope from "../scope.js";
+import LeafBlot from "./abstract/leaf.js";
+import ParentBlot from "./abstract/parent.js";
 
 // Shallow object comparison
 function isEqual(obj1, obj2) {

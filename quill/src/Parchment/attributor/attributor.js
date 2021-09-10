@@ -1,4 +1,4 @@
-import Scope from "../scope";
+import Scope from "../scope.js";
 
 export default class Attributor {
   static keys(node) {
@@ -10,7 +10,7 @@ export default class Attributor {
   scope;
   whitelist;
 
-  constructor(attrName, keyName, options) {
+  constructor(attrName, keyName, options = {}) {
     this.attrName = attrName;
     this.keyName = keyName;
     const attributeBit = Scope.TYPE & Scope.ATTRIBUTE;

@@ -1,5 +1,5 @@
-import ParchmentError from "./error";
-import Scope from "./scope";
+import ParchmentError from "./error.js";
+import Scope from "./scope.js";
 
 export default class Registry {
   static blots = new WeakMap();

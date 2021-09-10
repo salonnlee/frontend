@@ -1,5 +1,5 @@
-import Scope from "../scope";
-import LeafBlot from "./abstract/leaf";
+import Scope from "../scope.js";
+import LeafBlot from "./abstract/leaf.js";
 
 class TextBlot extends LeafBlot {
   static blotName = "text";

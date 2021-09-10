@@ -1,7 +1,6 @@
-import LinkedList from "../../collection/LinkedList.js";
-
 describe("LinkedList", function () {
   beforeEach(function () {
+    // eslint-disable-next-line no-undef
     this.list = new LinkedList();
     this.a = { str: "a" };
     this.b = { str: "b" };

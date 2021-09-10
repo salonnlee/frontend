@@ -1,5 +1,5 @@
-import Scope from "../../scope";
-import ShadowBlot from "./shadow";
+import Scope from "../../scope.js";
+import ShadowBlot from "./shadow.js";
 
 class LeafBlot extends ShadowBlot {
   static scope = Scope.INLINE_BLOT;
