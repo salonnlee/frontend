@@ -1,4 +1,4 @@
-import LinkedList from "../LinkedList.js";
+import LinkedList from "../../collection/LinkedList.js";
 
 describe("LinkedList", function () {
   beforeEach(function () {

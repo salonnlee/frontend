@@ -19,7 +19,7 @@
     "build": "react-scripts build",
     "test": "npm run test:delta; npm run test:parchment",
     "test:delta": "jasmine --config=src/Delta/jasmine.config.json",
-    "test:parchment": "karma start"
+    "test:parchment": "karma start src/Parchment/karma.config.cjs"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +41,11 @@
   },
   "devDependencies": {
     "jasmine": "^3.9.0",
-    "karma": "^6.3.4"
+    "jasmine-core": "^3.9.0",
+    "karma": "^6.3.4",
+    "karma-babel-preprocessor": "^8.0.1",
+    "karma-chrome-launcher": "^3.1.0",
+    "karma-jasmine": "^4.0.1",
+    "karma-webpack": "^5.0.0"
   }
 }
