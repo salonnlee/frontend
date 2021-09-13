@@ -4,7 +4,7 @@ module.exports = function (config) {
     frameworks: ["jasmine"],
     files: [
       "test/parchment.js",
-      // "test/setup.js",
+      "test/setup.js",
       "test/registry/*.js",
       "test/unit/LinkedList.js",
       // "test/unit/registry.js",

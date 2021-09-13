@@ -3,7 +3,7 @@ import ParchmentError from "../../error.js";
 import Scope from "../../scope.js";
 import ShadowBlot from "./shadow.js";
 
-function makeAttachedBlot(node, scroll) {
+export function makeAttachedBlot(node, scroll) {
   let blot = scroll.find(node);
   if (blot == null) {
     try {
