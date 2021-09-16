@@ -9,6 +9,7 @@ module.exports = function (config) {
       "test/unit/LinkedList.js",
       "test/unit/registry.js",
       "test/unit/attributor.js",
+      // @TODO
       // "test/unit/blot.js",
       // "test/unit/parent.js",
       // "test/unit/scroll.js",
