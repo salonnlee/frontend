@@ -13,6 +13,10 @@
     },
     {
       "path": "./quill"
+    },
+    {
+      "path": "./react",
+      "name": "react"
     }
   ],
   "settings": {}
