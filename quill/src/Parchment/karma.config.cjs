@@ -7,8 +7,8 @@ module.exports = function (config) {
       "test/setup.js",
       "test/registry/*.js",
       "test/unit/LinkedList.js",
-      // "test/unit/registry.js",
-      // "test/unit/attributor.js",
+      "test/unit/registry.js",
+      "test/unit/attributor.js",
       // "test/unit/blot.js",
       // "test/unit/parent.js",
       // "test/unit/scroll.js",
@@ -16,7 +16,7 @@ module.exports = function (config) {
       // "test/unit/block.js",
       // "test/unit/inline.js",
       // "test/unit/embed.js",
-      // "test/unit/text.js",
+      "test/unit/text.js",
       // "test/unit/lifecycle.js"
     ],
     preprocessors: {

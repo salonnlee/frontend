@@ -53,7 +53,7 @@ export default class Registry {
         match = this.types.inline;
       }
     } else if (query instanceof HTMLElement) {
-      const names = query.getAttribute("class" || "").split(/\s+/);
+      const names = (query.getAttribute("class") || "").split(/\s+/);
       names.some((name) => {
         match = this.classes[name];
         if (match) {
