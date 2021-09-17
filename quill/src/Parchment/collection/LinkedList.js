@@ -101,6 +101,9 @@ class LinkedList {
     this.length -= 1;
   }
 
+  at(index) {
+    return this.indexAt(index);
+  }
   // at
   indexAt(index) {
     const next = this.iterator();
@@ -126,6 +129,9 @@ class LinkedList {
   }
   offsetAt(offset) {
     return this.find(offset, false)[0];
+  }
+  offset(node) {
+    return this.offsetOf(node);
   }
   // offset
   offsetOf(node) {
