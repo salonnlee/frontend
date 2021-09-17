@@ -8,6 +8,7 @@ describe("Parent", function () {
 
   describe("descendants()", function () {
     it("all", function () {
+      // @TODO block descendants: instanceof ShadowBlot is always false
       // eslint-disable-next-line no-undef
       expect(this.blot.descendants(ShadowBlot).length).toEqual(8);
     });

@@ -10,7 +10,7 @@ module.exports = function (config) {
       "test/unit/registry.js",
       "test/unit/attributor.js",
       "test/unit/blot.js",
-      // "test/unit/parent.js",
+      // "test/unit/parent.js", // @TODO
       // "test/unit/scroll.js",
       // "test/unit/container.js",
       // "test/unit/block.js",
