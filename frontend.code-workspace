@@ -13,6 +13,9 @@
     },
     {
       "path": "./quill"
+    },
+    {
+      "path": "./formik"
     }
   ],
   "settings": {}
