@@ -19,7 +19,7 @@
         "no-console": 0,
         "max-len": [
             1,
-            140
+            85
         ],
         "no-cond-assign": [2, "always"],
         "no-ex-assign": 2,
