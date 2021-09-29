@@ -100,6 +100,7 @@
         "no-dupe-args": 2,
         "no-constant-condition": 2,
         "comma-style": [2, "last"],
+        "comma-dangle": [2, "never"],
         "no-lonely-if": 2
     },
     "globals": {

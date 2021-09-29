@@ -150,5 +150,5 @@ function isSubscription(value) {
 module.exports = {
   EMPTY_SUBSCRIPTION,
   Subscription,
-  isSubscription,
+  isSubscription
 };

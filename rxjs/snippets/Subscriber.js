@@ -5,6 +5,11 @@
 const { Subscription } = require('./Subscription');
 const { isFunction } = require('./utils');
 
+// Subscriber is a common type in RxJS, and crucial for implementing operators.
+// while the Observer is the public API for consuming the values of an Observable.
+//
+// all Observers get converted to a Subscriber, in order to provide Subscription-like
+// capabilities such as `unsubscribe`.
 class Subscriber /* <T> */ extends Subscription /* implements Observer<T> */ {
   unsubscribe() {
     this.isStopped = true;
@@ -65,6 +70,7 @@ class Subscriber /* <T> */ extends Subscription /* implements Observer<T> */ {
 
 class SafeSubscriber extends Subscriber {
   destination /* : Observer<any> */;
+
   constructor(
     observerOrNext /* ?: Partial<Observer<T>> | ((value: T) => void) | null */,
     error /* ?: ((error?: any) => void) | null */,
@@ -90,7 +96,7 @@ class SafeSubscriber extends Subscriber {
         : (err) => {
           throw err;
         },
-      complete: complete ? complete : () => {},
+      complete: complete ? complete : () => {}
     };
   }
 }
@@ -100,7 +106,7 @@ const EMPTY_OBSERVER = {
   error: (err) => {
     throw err;
   },
-  complete: () => {},
+  complete: () => {}
 };
 
 module.exports = { Subscriber, SafeSubscriber, EMPTY_OBSERVER };
