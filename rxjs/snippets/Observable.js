@@ -9,9 +9,13 @@ const { Symbol_observable, pipeFromArray, isFunction } = require('./utils');
 
 // a representation of any set of values over any amount of time.
 // this is the most basic building block of RxJS.
-class Observable {
+class Observable /* <T> implements Subscribable<T> */ {
   _subscriber;
-  constructor(subscriber) {
+  /* ?: (this: Observable<T>, subscriber: Subscriber<T>) => Subscription */
+  constructor(
+    subscriber
+    /* ?: (this: Observable<T>, subscriber: Subscriber<T>) => Subscription */
+  ) {
     if (subscriber) {
       this._subscriber = subscriber;
     }
@@ -21,7 +25,11 @@ class Observable {
     return this;
   }
 
-  subscribe(observerOrNext, error, complete) {
+  subscribe(
+    observerOrNext /* ?: Partial<Observer<T>> | ((value: T) => void) | null */,
+    error /* ?: ((error: any) => void) | null */,
+    complete /* ?: (() => void) | null */
+  ) /* : SubScription */ {
     const subscriber = isSubscriber(observerOrNext)
       ? observerOrNext
       : new SafeSubscriber(observerOrNext, error, complete);
@@ -31,7 +39,7 @@ class Observable {
     return subscriber;
   }
 
-  pipe(...operations) {
+  pipe(...operations /* : OperatorFunction<any, any>[] */) /* : Observable<any> */ {
     return pipeFromArray(operations)(this);
   }
 }

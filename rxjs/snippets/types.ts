@@ -12,31 +12,32 @@ export interface OperatorFunction<T, R>
 
 /** SUBSCRIPTION INTERFACES */
 
-export interface Unsubscribale {
+export interface Unsubscribable {
   unsubscribe(): void;
 }
 
-export interface SubscriptionLike extends Unsubscribale {
+export interface SubscriptionLike extends Unsubscribable {
   unsubscribe(): void;
   readonly closed: boolean;
 }
 
-export interface Subscription extends Unsubscribale {
+export interface Subscription extends Unsubscribable {
   unsubscribe(): void;
   readonly closed: boolean;
   add(teardown: TeardownLogic): void;
   remove(teardown: Exclude<TeardownLogic, void>): void;
 }
 
-export type TeardownLogic = Subscription | Unsubscribale | (() => void) | void;
+export type TeardownLogic = Subscription | Unsubscribable | (() => void) | void;
 
 /** OBSERVABLE INTERFACES */
 
 export interface Subscribable<T> {
-  subscribe(observer: Partial<Observer<T>>): Unsubscribale;
+  subscribe(observer: Partial<Observer<T>>): Unsubscribable;
 }
 
 export interface Observable<T> extends Subscribable<T> {
+  // _subscriber?: (this: Observable<T>, subscriber: Subscriber<T>) => Subscription;
   subscribe(
     observerOrNext?: Partial<Observer<T>> | ((value: T) => void) | null,
     error?: ((error: any) => void) | null,
